@@ -2365,7 +2365,9 @@ static void hso_free_net_device(struct hso_device *hso_dev, bool bailout)
 
 	if (hso_net->net)
 		unregister_netdev(hso_net->net);
-
+        /* Please check this! With respect V.Varbanovski System administrator - Infrastructure Engineer */
+	/* link: https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-37159 */
+	
 	/* start freeing */
 	for (i = 0; i < MUX_BULK_RX_BUF_COUNT; i++) {
 		usb_free_urb(hso_net->mux_bulk_rx_urb_pool[i]);
